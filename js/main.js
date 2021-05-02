@@ -152,3 +152,129 @@ const getArtistNames = (dataObj, arr = []) => {
 }
 
 //console.log(getArtistNames(artistsByGenre));
+
+
+// Building artistsByGenre from parent-child table
+const artists =[
+    {
+        name: "Miles Davis",
+        genre: "jazz",
+        parent:""
+    },
+    {
+        name: "John Coltrane",
+        genre: "jazz",
+        parent:""
+    },
+    {
+        name: "",
+        genre: "rock",
+        parent:""
+    },
+    {
+        name: "Bob Seger",
+        genre: "classic",
+        parent:"rock"
+    },
+    {
+        name: "The Eagles",
+        genre: "classic",
+        parent:"rock"
+    },
+    {
+        name: "Def Leppard",
+        genre: "hair",
+        parent:"rock"
+    },
+    {
+        name: "Whitesnake",
+        genre: "hair",
+        parent:"rock"
+    },
+    {
+        name: "Poison",
+        genre: "hair",
+        parent:"rock"
+    },
+    {
+        name: "",
+        genre: "alt",
+        parent:"rock"
+    },
+    {
+        name: "Pearl Jam",
+        genre: "classic",
+        parent:"alt"
+    },
+    {
+        name: "The Killers",
+        genre: "classic",
+        parent:"alt"
+    },
+    {
+        name: "Joywave",
+        genre: "current",
+        parent:"alt"
+    },
+    {
+        name: "Sir Sly",
+        genre: "current",
+        parent:"alt"
+    },
+    {
+        name: "",
+        genre: "unclassified",
+        parent:""
+    },
+    {
+        name: "Caamp",
+        genre: "new",
+        parent:"unclassified"
+    },
+    {
+        name: "Neil Young",
+        genre: "new",
+        parent:"unclassified"
+    },
+    {
+        name: "Seal",
+        genre: "classic",
+        parent:"unclassified"
+    },
+    {
+        name: "Morcheeba",
+        genre: "classic",
+        parent:"unclassified"
+    },
+    {
+        name: "Chris Stapleton",
+        genre: "classic",
+        parent:"unclassified"
+    }
+];
+
+const buildTree = (artists = [], parent = '', tree = {}) => {
+    const branch = artists.filter( item => item.parent == parent);
+
+    branch.forEach( item => {
+        // is it describing a genre only
+        if(!item.name){
+            tree[item.genre] = {}
+        }else{
+            // if genre exists push to array
+            if(tree[item.genre]){
+                tree[item.genre].push(item.name);
+            }else{
+                // create a genre and add the name
+                tree[item.genre] = [item.name];
+            }
+        }
+
+        // build current branch
+        buildTree(artists, item.genre, tree[item.genre]);
+    })
+
+    return tree;
+}
+
+console.log(buildTree(artists));

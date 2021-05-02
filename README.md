@@ -1,6 +1,6 @@
 # "Real Life Javascript Recursion Examples"
 
-✅ [Check out my YouTube Channel with all of my tutorials](https://www.youtube.com/DaveGrayTeachesCode).
+✅ [Check out Dave Gray's YouTube Channel with all of my tutorials](https://www.youtube.com/DaveGrayTeachesCode).
 
 **Description:**
 
@@ -8,7 +8,10 @@ Finding examples of recursion that are applicable to real-life coding situations
 
 [YouTube Tutorial](https://youtu.be/Q0alTGQ-lXk) for this repository.
 
-I suggest completing my [8 hour JavaScript course tutorial video](https://youtu.be/EfAl9bwzVZk) if you are new to Javascript.
+I suggest completing Dave Gray's [8 hour JavaScript course tutorial video](https://youtu.be/EfAl9bwzVZk) if you are new to Javascript.
+
+**My Modifications:**
+- I added `buildTree` example to rebuild the same `artistsByGenre` object structure from a parent-child table
 
 ### Academic Honesty
 
